@@ -77,10 +77,10 @@ const config = {
         respectPrefersColorScheme: true,
       },
       navbar: {
-        title: 'My Site',
+        title: 'Zeacer',
         logo: {
-          alt: 'My Site Logo',
-          src: 'img/logo.svg',
+          alt: 'Zeacer',
+          src: 'img/zeacer.png',
         },
         items: [
           {to: '/blog', label: 'Blog', position: 'right'},

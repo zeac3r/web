@@ -1,7 +1,3 @@
----
-layout: page
-title: Legal
----
 
 # Legal Disclaimer
 
@@ -20,7 +16,7 @@ Nothing contained on this website shall be construed as:
 
 Any security testing must be conducted **only with the express authorisation of the system owner** and in compliance with all applicable Australian laws, including but not limited to the **Criminal Code Act 1995 (Cth)**, as well as any relevant state, territory, or international laws.
 
-# Safe Harbor for Good-Faith Security Research
+## Safe Harbor for Good-Faith Security Research
 
 Any security research, analysis, or discussion referenced on this website was conducted **in good faith**, for the sole purpose of improving security and reducing risk.
 
@@ -33,7 +29,7 @@ The author affirms that:
 
 The author requests that any interpretation of the content on this website be made **in accordance with recognised responsible disclosure practices and good-faith security research principles**.
 
-# Limitation of Liability
+## Limitation of Liability
 
 To the fullest extent permitted by law, the author makes **no representations or warranties**, express or implied, regarding the accuracy, completeness, or reliability of the information provided and accepts **no liability** for any loss, damage, or legal consequences arising from the use, misuse, or interpretation of the content on this website.
 

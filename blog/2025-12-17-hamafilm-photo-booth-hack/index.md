@@ -1,41 +1,32 @@
 ---
 title: Hacking the photo booths of HamaFilms
-published: true
+authors: [zeacer]
+tags: [security-research]
+---
+
+What started as a fun photo booth stop with a friend quickly turned into something much bigger. A simple QR code led me down a rabbit hole, uncovering a serious privacy flaw, weeks of exposed user photos, ignored reports, and a reminder of how easily personal moments can be left unprotected.
+
+![](image-3.png)
+
+<!-- truncate -->
+
 ---
 
 In early October, my friend dragged me to a photo booth place called HamaFilms at 272 Lonsdale St, Melbourne VIC 3000 (in the Melbourne CBD) while we were waiting to meet some other friends.
 
-<p style="text-align:center; margin: 1rem 0;">
-  <img src="/assets/2025-12-17-hamafilm-photo-booth-hack/image-3.png"
-       alt="HamaFilms"
-       style="height:50vh; width:auto; display:inline-block;">
-</p>
-
 We went in, took some photos, and received physical printouts. After returning to where we were sitting, my friend showed me that you could download the images we took, as well as a video of our session in front of the booth, by scanning the QR code located at the bottom-right corner.
 
-<p style="text-align:center; margin: 1rem 0;">
-  <img src="/assets/2025-12-17-hamafilm-photo-booth-hack/image.png"
-       alt="HamaFilms"
-       style="height:50vh; width:auto; display:inline-block;">
-</p>
+![](image.png)
 
 I took out my phone, scanned the QR code, and it took me to a website that linked to our media. I was greeted with a page like this:
 
-<p style="text-align:center; margin: 1rem 0;">
-  <img src="/assets/2025-12-17-hamafilm-photo-booth-hack/image-1.png"
-       alt="HamaFilms"
-       style="height:50vh; width:auto; display:inline-block;">
-</p>
+![](image-1.png)
 
 Later that same week, I scanned it again and started to poke around. At the time of writing this (18/12/2025), this vulnerability has not yet been patched. Therefore, I legally cannot disclose its exact nature.
 
 I wrote a script to exploit the vulnerability, and it worked.
 
-<p style="text-align:center; margin: 1rem 0;">
-  <img src="/assets/2025-12-17-hamafilm-photo-booth-hack/image-2.png"
-       alt="HamaFilms"
-       style="height:50vh; width:auto; display:inline-block;">
-</p>
+![](image-2.png)
 
 I further discovered that I could download both images and videos from sessions of all users from the past 2–3 weeks due to their file retention approach.
 
@@ -51,31 +42,19 @@ After that, I got in touch with [Lorenzo](https://www.linkedin.com/in/lorenzofb/
 
 In mid-December, I visited all of their branches again, at times when there were customers present, to confirm the continued existence of the vulnerability. It appeared that they had reduced the file retention period from 2–3 weeks to just 24 hours and made cloud storage of images optional. However, neither Lorenzo nor I heard back from them. Most users will likely still choose to upload their media to the server, as this is the only way to access the recorded video.
 
-<p style="text-align:center; margin: 1rem 0;">
-  <img src="/assets/2025-12-17-hamafilm-photo-booth-hack/image-4.png"
-       alt="HamaFilms"
-       style="height:50vh; width:auto; display:inline-block;">
-</p>
+![](image-4.png)
 
 Changing the file retention policy and making cloud storage optional may have been a response to our report, or it may have been a complete coincidence—we have no way of knowing. Some machines display this screen (shown above), while others do not.
 
 All of these machines are connected to a Canon DSLR, which is responsible for capturing the photos and videos for each session. In the machine shown below, a Canon 2000D was connected and controlled in an automated manner.
 
-<p style="text-align:center; margin: 1rem 0;">
-  <img src="/assets/2025-12-17-hamafilm-photo-booth-hack/image-5.png"
-       alt="HamaFilms"
-       style="height:50vh; width:auto; display:inline-block;">
-</p>
+![](image-5.png)
 
 However, reducing the file retention period does not fix the vulnerability; it only reduces the attack surface by limiting the number of exposed images.
 
 In Melbourne, this venue is extremely popular among people of all age groups, including underage teenagers.
 
-<p style="text-align:center; margin: 1rem 0;">
-  <img src="/assets/2025-12-17-hamafilm-photo-booth-hack/image-6.png"
-       alt="HamaFilms"
-       style="height:50vh; width:auto; display:inline-block;">
-</p>
+![](image-6.png)
 
 After confirming all of this, on 12 December 2025, Lorenzo published a TechCrunch article titled ["Flaw in photo booth maker’s website exposes customers’ pictures"](https://techcrunch.com/2025/12/12/flaw-in-photo-booth-makers-website-exposes-customers-pictures/), which details what happened from both of our perspectives.
 
