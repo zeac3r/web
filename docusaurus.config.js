@@ -86,6 +86,7 @@ const config = {
           {to: '/blog', label: 'Blog', position: 'right'},
           {to: '/legal', label: 'Legal', position: 'right'},
           {to: '/blog/archive', label: 'Archive', position: 'right'},
+          {to: '/contact', label: 'Contact', position: 'right'},
           {
             href: 'https://x.com/zeac3r',
             label: 'Twitter (X)',
